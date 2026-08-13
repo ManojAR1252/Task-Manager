@@ -2,6 +2,8 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.7.
 
+Project Link: https://task-manager-rosy-sigma-90.vercel.app/login
+
 ## Development server
 
 To start a local development server, run:
