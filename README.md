@@ -2,7 +2,7 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.7.
 
-Project Link: https://task-manager-t7l2-3o9cqjfi9-manoj89406gmailcoms-projects.vercel.app/login
+Project Link: https://sl1nk.com/e5sy9re
 
 ## Development server
 
