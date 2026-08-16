@@ -1,31 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Task } from '../../models/task.model';
 import { TaskCard } from '../task-card/task-card';
+import { TaskService } from '../../services/task';
+
 @Component({
   selector: 'app-task-list',
+  standalone: true,
   imports: [TaskCard],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css'
 })
-export class TaskList {
-  tasks: Task[] = [
-    {
-      id: 1,
-      title: 'Fix API integration',
-      priority: 'High',
-      status: 'In Progress'
-    },
-    {
-      id: 2,
-      title: 'Design new user icons',
-      priority: 'Medium',
-      status: 'Completed'
-    },
-    {
-      id: 3,
-      title: 'Update documentation',
-      priority: 'Low',
-      status: 'Pending'
-    }
-  ];
+export class TaskList implements OnInit {
+
+  tasks: Task[] = [];
+
+  @Output() editTask = new EventEmitter<Task>();
+
+  constructor(private taskService: TaskService) {}
+
+  ngOnInit() {
+    this.loadTasks();
+  }
+
+  loadTasks() {
+    this.taskService.getTasks().subscribe(tasks => {
+      this.tasks = tasks;
+    });
+  }
+
+  edit(task: Task) {
+    this.editTask.emit(task);
+  }
+
+  delete(id: string) {
+    this.taskService.deleteTask(id);
+    this.loadTasks();
+  }
 }
