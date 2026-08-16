@@ -1,0 +1,54 @@
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+}
+
+.task-info h3 {
+  margin: 0;
+}
+
+.status-badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.completed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background: #1976d2;
+  color: white;
+}
+
+.btn-delete {
+  background: #e53935;
+  color: white;
+}
