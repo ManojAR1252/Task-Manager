@@ -1,0 +1,13 @@
+.dashboard-content {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.list-section {
+  flex: 2;
+}
+
+.form-section {
+  flex: 1;
+}
