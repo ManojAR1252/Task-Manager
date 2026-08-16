@@ -1,0 +1,41 @@
+<h3>
+  {{ taskToEdit ? 'Edit Task' : 'Add Task' }}
+</h3>
+
+<form [formGroup]="taskForm" (ngSubmit)="submit()">
+
+  <input
+    type="text"
+    formControlName="title"
+    placeholder="Task Title">
+
+  @if(taskToEdit){
+
+    <label>
+      <input
+        type="checkbox"
+        formControlName="completed">
+
+      Completed
+    </label>
+
+  }
+
+  <button
+    type="submit"
+    [disabled]="taskForm.invalid">
+
+    {{ taskToEdit ? 'Update' : 'Add' }}
+
+  </button>
+
+  @if(taskToEdit){
+
+    <button type="button" (click)="cancel()">
+      Cancel
+
+    </button>
+
+  }
+
+</form>
