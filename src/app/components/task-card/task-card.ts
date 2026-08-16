@@ -1,32 +1,25 @@
-<div class="task-card">
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Task } from '../../models/task.model';
 
-  <div class="task-info">
-    <h3>{{ task.title }}</h3>
+@Component({
+  selector: 'app-task-card',
+  standalone: true,
+  templateUrl: './task-card.html',
+  styleUrl: './task-card.css'
+})
+export class TaskCard {
 
-    <span
-      class="status-badge"
-      [class.completed]="task.completed"
-      [class.pending]="!task.completed">
+  @Input() task!: Task;
 
-      {{ task.completed ? 'Completed' : 'Pending' }}
+  @Output() edit = new EventEmitter<Task>();
+  @Output() delete = new EventEmitter<string>();
 
-    </span>
-  </div>
+  editTask() {
+    this.edit.emit(this.task);
+  }
 
-  <div class="task-actions">
+  deleteTask() {
+    this.delete.emit(this.task.id);
+  }
 
-    <button
-      class="btn-edit"
-      (click)="editTask()">
-      Edit
-    </button>
-
-    <button
-      class="btn-delete"
-      (click)="deleteTask()">
-      Delete
-    </button>
-
-  </div>
-
-</div>
+}
