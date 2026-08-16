@@ -1,11 +1,32 @@
-import { Component, Input } from '@angular/core';
-import { Task } from '../../models/task.model';
-@Component({
-  selector: 'app-task-card',
-  imports: [],
-  templateUrl: './task-card.html',
-  styleUrl: './task-card.css'
-})
-export class TaskCard {
-  @Input() task!: Task;
-}
+<div class="task-card">
+
+  <div class="task-info">
+    <h3>{{ task.title }}</h3>
+
+    <span
+      class="status-badge"
+      [class.completed]="task.completed"
+      [class.pending]="!task.completed">
+
+      {{ task.completed ? 'Completed' : 'Pending' }}
+
+    </span>
+  </div>
+
+  <div class="task-actions">
+
+    <button
+      class="btn-edit"
+      (click)="editTask()">
+      Edit
+    </button>
+
+    <button
+      class="btn-delete"
+      (click)="deleteTask()">
+      Delete
+    </button>
+
+  </div>
+
+</div>
