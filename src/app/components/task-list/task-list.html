@@ -1,5 +1,13 @@
 <div class="task-list">
-@for (task of tasks; track task.id) {
-<app-task-card [task] = "task" ></app-task-card>
-}
+
+  @for (task of tasks; track task.id) {
+
+    <app-task-card
+      [task]="task"
+      (edit)="edit(task)"
+      (delete)="delete($event)">
+    </app-task-card>
+
+  }
+
 </div>
