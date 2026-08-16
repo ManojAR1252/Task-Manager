@@ -1,10 +1,18 @@
-<div class="dashboard">
-<header>
-<h1>TaskMaster Pro</h1>
-<span>Current User: manoj</span>
-</header>
-<main>
-<h2>TaskList</h2>
-<app-task-list></app-task-list>
-</main>
+<div class="dashboard-content">
+
+  <div class="list-section">
+    <h2>Tasks</h2>
+
+    <app-task-list
+      (editTask)="editTask($event)">
+    </app-task-list>
+  </div>
+
+  <div class="form-section">
+    <app-task-form
+      [taskToEdit]="selectedTask"
+      (formSubmitted)="clearSelection()">
+    </app-task-form>
+  </div>
+
 </div>
